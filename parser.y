@@ -391,6 +391,7 @@ import (
 	function              "FUNCTION"
 	general               "GENERAL"
 	global                "GLOBAL"
+	gracefully            "GRACEFULLY"
 	grants                "GRANTS"
 	hash                  "HASH"
 	histogram             "HISTOGRAM"
@@ -7222,6 +7223,10 @@ CompletionTypeWithinTransaction:
 
 ShutdownStmt:
 	"SHUTDOWN"
+	{
+		$$ = &ast.ShutdownStmt{}
+	}
+|	"SHUTDOWN" "GRACEFULLY"
 	{
 		$$ = &ast.ShutdownStmt{}
 	}
